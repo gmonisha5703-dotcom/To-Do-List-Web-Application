@@ -20,6 +20,17 @@ input {
 
 button {
     padding: 10px;
+completed span {
+    text-decoration: line-through;
+    color: gray;
+    opacity: 0.6;
+}
+
+completed {
+    background-color: #e0ffe0;
+    padding: 8px;
+    border-radius: 5px;
+}
     background: #007bff;
     color: white;
     border: none;
