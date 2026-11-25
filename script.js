@@ -8,7 +8,20 @@ function addTask() {
     }
 
     const li = document.createElement("li");
-    li.textContent = task;
+
+    const taskText = document.createElement("span");
+    taskText.textContent = task;
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+
+    editButton.onclick = function () {
+        const updatedTask = prompt("Edit your task:", taskText.textContent);
+
+        if (updatedTask !== null && updatedTask.trim() !== "") {
+            taskText.textContent = updatedTask.trim();
+        }
+    };
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
@@ -17,8 +30,10 @@ function addTask() {
         li.remove();
     };
 
+    li.appendChild(taskText);
+    li.appendChild(editButton);
     li.appendChild(deleteButton);
-    document.getElementById("taskList").appendChild(li);
 
+    document.getElementById("taskList").appendChild(li);
     input.value = "";
 }
